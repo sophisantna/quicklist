@@ -7,7 +7,7 @@ function addItem() {
         alert("Não é possível adicionar um item em branco!")
         return
     }
-    
+
     const item = {
         name: itemName,
         checked: false
@@ -23,6 +23,7 @@ function addItem() {
 function showItemsList() {
     const sectionList = document.querySelector(".list")
     sectionList.textContent = ""
+    items.sort((itemA, itemB) => Number(itemA.checked) - Number(itemB.checked))
 
     items.map((item, index) => {
         sectionList.innerHTML += `
