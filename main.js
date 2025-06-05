@@ -24,10 +24,10 @@ function showItemsList() {
         <div class="item">
                 <div>
                     <input type="checkbox" name="list" id="item-${index}">
-                    <div class="custom-checkbox">
+                    <div class="custom-checkbox" onClick="checkItem('${item.name}')">
                         <img src="./assets/assets/checked.svg" alt="checked">
                     </div>
-                    <label for="item-${index}">${item.name}</label>
+                     <label for="item-${index}" onClick="checkItem('${item.name}')">${item.name}</label>
                 </div>
 
                  <button onClick="removeItem('${item.name}')">
@@ -51,5 +51,10 @@ function removeItem(itemName) {
         items.splice(itemIndex, 1)
     }
 
+    showItemsList()
+}
+function checkItem(itemName) {
+    const itemIndex = items.findIndex((item) => item.name === itemName)
+    items.checked = !item.checkedAdd 
     showItemsList()
 }
